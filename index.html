@@ -1,699 +1,88 @@
-export default function WebDayChallenge() {
-  const users = [
-    'Salma', 'Rafiqoh', 'Nurul', 'Anargya', 'Almira', 'Putri', 'Putra', 'Aji', 'Ilham', 'Aninda', 'Nathania'
-  ];
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Day Challenge</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-white text-slate-800">
+    <div id="root"></div>
 
-  const challenges = [
-    {
-      title: 'Morning Workout',
-      category: 'Health & Fitness',
-      difficulty: 'Medium',
-      progress: 70,
-      reward: 50,
-      duration: '20 Menit',
-      premium: false,
-      video: 'https://www.youtube.com/embed/pi5WhX24uS4'
-    },
-    {
-      title: 'Gratitude Journal',
-      category: 'Journaling',
-      difficulty: 'Easy',
-      progress: 45,
-      reward: 30,
-      duration: '10 Menit',
-      premium: true,
-      video: 'https://www.youtube.com/embed/xFYJk1hsJaU'
-    },
-    {
-      title: 'Public Speaking Practice',
-      category: 'Self Improvement',
-      difficulty: 'Hard',
-      progress: 25,
-      reward: 80,
-      duration: '30 Menit',
-      premium: true,
-      video: 'https://www.youtube.com/embed/-2NnNomW68k'
-    }
-  ];
+    <!-- React & ReactDOM -->
+    <script type="module">
+        import React from 'https://esm.sh/react';
+        import ReactDOM from 'https://esm.sh/react-dom/client';
+        import htm from 'https://esm.sh/htm';
 
-  const leaderboard = [
-    { name: 'Salma', points: 1250, badge: 'Legend', level: 20 },
-    { name: 'Ilham', points: 920, badge: 'Master', level: 16 },
-    { name: 'Putri', points: 710, badge: 'Warrior', level: 12 },
-    { name: 'Nurul', points: 500, badge: 'Challenger', level: 9 }
-  ];
+        const html = htm.bind(React.createElement);
 
-  const features = [
-    'AI Reminder',
-    'Progress Partner',
-    'Daily Challenge',
-    'Journaling',
-    'Leaderboard',
-    'Reward Point',
-    'Premium Access',
-    'Community Support'
-  ];
+        function WebDayChallenge() {
+            const users = ['Salma', 'Rafiqoh', 'Nurul', 'Anargya', 'Almira', 'Putri', 'Putra', 'Aji', 'Ilham', 'Aninda', 'Nathania'];
+            const challenges = [
+                { title: 'Morning Workout', category: 'Health & Fitness', difficulty: 'Medium', progress: 70, reward: 50, duration: '20 Menit', premium: false, video: 'https://www.youtube.com/embed/pi5WhX24uS4' },
+                { title: 'Gratitude Journal', category: 'Journaling', difficulty: 'Easy', progress: 45, reward: 30, duration: '10 Menit', premium: true, video: 'https://www.youtube.com/embed/xFYJk1hsJaU' },
+                { title: 'Public Speaking Practice', category: 'Self Improvement', difficulty: 'Hard', progress: 25, reward: 80, duration: '30 Menit', premium: true, video: 'https://www.youtube.com/embed/-2NnNomW68k' }
+            ];
+            const leaderboard = [
+                { name: 'Salma', points: 1250, badge: 'Legend', level: 20 },
+                { name: 'Ilham', points: 920, badge: 'Master', level: 16 },
+                { name: 'Putri', points: 710, badge: 'Warrior', level: 12 },
+                { name: 'Nurul', points: 500, badge: 'Challenger', level: 9 }
+            ];
+            const features = ['AI Reminder', 'Progress Partner', 'Daily Challenge', 'Journaling', 'Leaderboard', 'Reward Point', 'Premium Access', 'Community Support'];
 
-  return (
-    <div className="min-h-screen bg-white text-slate-800 font-sans">
-      <nav className="sticky top-0 z-50 backdrop-blur bg-white/80 border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-blue-500 to-orange-400 flex items-center justify-center text-white font-bold shadow-lg">
-              WD
-            </div>
-            <div>
-              <h1 className="font-bold text-lg">Web Day Challenge</h1>
-              <p className="text-xs text-slate-500">AI Self Development Platform</p>
-            </div>
-          </div>
+            return html`
+                <div class="min-h-screen bg-white text-slate-800 font-sans">
+                    <nav class="sticky top-0 z-50 backdrop-blur bg-white/80 border-b border-slate-100">
+                        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-blue-500 to-orange-400 flex items-center justify-center text-white font-bold shadow-lg">WD</div>
+                                <div>
+                                    <h1 class="font-bold text-lg">Web Day Challenge</h1>
+                                    <p class="text-xs text-slate-500">AI Self Development Platform</p>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
 
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium">
-            <a className="hover:text-blue-600 transition">Home</a>
-            <a className="hover:text-blue-600 transition">Challenge</a>
-            <a className="hover:text-blue-600 transition">Community</a>
-            <a className="hover:text-blue-600 transition">Leaderboard</a>
-            <a className="hover:text-blue-600 transition">Premium</a>
-            <button className="text-blue-600">Login</button>
-            <button className="bg-gradient-to-r from-blue-600 to-orange-400 text-white px-5 py-2 rounded-xl shadow-lg hover:scale-105 transition">
-              Register
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      <section className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-14 items-center">
-        <div>
-          <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-100 px-4 py-2 rounded-full text-blue-700 text-sm mb-6">
-            🚀 Gamification Self Improvement Platform
-          </div>
-
-          <h1 className="text-5xl md:text-6xl font-black leading-tight tracking-tight">
-            Transform Your <span className="text-blue-600">Habits</span> Into Challenges
-          </h1>
-
-          <p className="text-slate-500 text-lg mt-6 leading-relaxed">
-            Web Day Challenge membantu pengguna membangun kebiasaan positif melalui challenge interaktif, AI reminder, leaderboard, dan komunitas suportif.
-          </p>
-
-          <div className="flex flex-wrap gap-4 mt-8">
-            <button className="bg-gradient-to-r from-blue-600 to-blue-500 text-white px-7 py-4 rounded-2xl shadow-xl hover:scale-105 transition-all">
-              Mulai Challenge
-            </button>
-
-            <button className="border border-slate-200 px-7 py-4 rounded-2xl hover:bg-slate-50 transition-all">
-              Gabung Sekarang
-            </button>
-          </div>
-
-          <div className="grid grid-cols-3 gap-4 mt-10">
-            <div className="bg-white border border-slate-100 p-5 rounded-3xl shadow-sm">
-              <h2 className="text-3xl font-bold text-blue-600">15K+</h2>
-              <p className="text-sm text-slate-500 mt-1">Active Users</p>
-            </div>
-
-            <div className="bg-white border border-slate-100 p-5 rounded-3xl shadow-sm">
-              <h2 className="text-3xl font-bold text-orange-500">1.2M</h2>
-              <p className="text-sm text-slate-500 mt-1">Completed Challenge</p>
-            </div>
-
-            <div className="bg-white border border-slate-100 p-5 rounded-3xl shadow-sm">
-              <h2 className="text-3xl font-bold text-blue-600">98%</h2>
-              <p className="text-sm text-slate-500 mt-1">Consistency Rate</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="relative">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-300/30 to-orange-300/30 blur-3xl rounded-full"></div>
-
-          <div className="relative bg-white rounded-[40px] border border-slate-100 shadow-2xl p-8 overflow-hidden">
-            <div className="flex items-center justify-between mb-8">
-              <div>
-                <h3 className="font-bold text-xl">Daily Progress</h3>
-                <p className="text-slate-500 text-sm">AI Productivity Overview</p>
-              </div>
-
-              <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-orange-400 flex items-center justify-center text-white font-bold text-lg shadow-lg">
-                87%
-              </div>
-            </div>
-
-            <div className="space-y-5">
-              <div className="bg-slate-50 rounded-3xl p-5 hover:scale-[1.02] transition-all">
-                <div className="flex justify-between mb-3">
-                  <span className="font-semibold">Workout Challenge</span>
-                  <span className="text-blue-600 font-bold">70%</span>
-                </div>
-                <div className="h-3 bg-slate-200 rounded-full overflow-hidden">
-                  <div className="h-full w-[70%] bg-gradient-to-r from-blue-500 to-orange-400 rounded-full"></div>
-                </div>
-              </div>
-
-              <div className="bg-slate-50 rounded-3xl p-5 hover:scale-[1.02] transition-all">
-                <div className="flex justify-between mb-3">
-                  <span className="font-semibold">Journaling</span>
-                  <span className="text-orange-500 font-bold">45%</span>
-                </div>
-                <div className="h-3 bg-slate-200 rounded-full overflow-hidden">
-                  <div className="h-full w-[45%] bg-gradient-to-r from-orange-400 to-orange-500 rounded-full"></div>
-                </div>
-              </div>
-
-              <div className="bg-blue-600 text-white rounded-3xl p-6">
-                <p className="text-sm opacity-90">AI Reminder</p>
-                <h3 className="font-bold text-xl mt-2 leading-relaxed">
-                  “Kamu tinggal 1 challenge lagi untuk mempertahankan streak!”
-                </h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="max-w-7xl mx-auto px-6 py-10">
-        <div className="text-center mb-14">
-          <h2 className="text-4xl font-black">Fitur Utama</h2>
-          <p className="text-slate-500 mt-4">Self development ecosystem modern berbasis AI dan gamification.</p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="bg-white border border-slate-100 p-7 rounded-[30px] shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
-            >
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-orange-400 flex items-center justify-center text-white text-2xl mb-5 shadow-lg">
-                ✨
-              </div>
-              <h3 className="font-bold text-xl">{feature}</h3>
-              <p className="text-slate-500 text-sm mt-3 leading-relaxed">
-                Sistem modern untuk membantu konsistensi, produktivitas, dan pengembangan diri.
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-gradient-to-br from-blue-50 to-orange-50 py-20 mt-20">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-black">Konsep Platform</h2>
-          <p className="text-slate-500 mt-4 max-w-3xl mx-auto leading-relaxed">
-            Web Day Challenge menggabungkan gamifikasi, akuntabilitas sosial, AI personal reminder, sistem poin, progress partner, dan komunitas suportif dalam satu platform interaktif modern.
-          </p>
-
-          <div className="grid md:grid-cols-3 gap-6 mt-14">
-            <div className="bg-white rounded-[30px] p-8 shadow-sm">
-              <div className="text-5xl mb-4">🎯</div>
-              <h3 className="font-bold text-2xl">Gamification</h3>
-              <p className="text-slate-500 mt-3">Challenge harian dengan sistem poin, badge, dan level progression.</p>
-            </div>
-
-            <div className="bg-white rounded-[30px] p-8 shadow-sm">
-              <div className="text-5xl mb-4">🤖</div>
-              <h3 className="font-bold text-2xl">AI Reminder</h3>
-              <p className="text-slate-500 mt-3">Motivasi personal dan pengingat challenge berbasis AI.</p>
-            </div>
-
-            <div className="bg-white rounded-[30px] p-8 shadow-sm">
-              <div className="text-5xl mb-4">👥</div>
-              <h3 className="font-bold text-2xl">Social Accountability</h3>
-              <p className="text-slate-500 mt-3">Partner progress dan komunitas suportif untuk menjaga konsistensi.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="flex items-center justify-between mb-10 flex-wrap gap-5">
-          <div>
-            <h2 className="text-4xl font-black">Dashboard User</h2>
-            <p className="text-slate-500 mt-2">Interactive startup dashboard experience.</p>
-          </div>
-
-          <div className="flex items-center gap-4 bg-white border border-slate-100 px-5 py-3 rounded-2xl shadow-sm">
-            <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-orange-400"></div>
-            <div>
-              <h4 className="font-bold">Halo, Selamat Datang!</h4>
-              <p className="text-sm text-slate-500">@salma.challenge</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="grid lg:grid-cols-[260px_1fr] gap-8">
-          <aside className="bg-white border border-slate-100 rounded-[35px] p-6 shadow-sm h-fit sticky top-24">
-            <div className="space-y-3">
-              {['Home','Daily Challenge','Journal','Community (Premium)','Leaderboard','Premium','Settings'].map((item,index)=>(
-                <div key={index} className={`p-4 rounded-2xl cursor-pointer transition-all ${index===0 ? 'bg-blue-600 text-white shadow-lg':'hover:bg-slate-50'}`}>
-                  {item}
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-8 bg-gradient-to-br from-blue-600 to-orange-400 text-white rounded-3xl p-6">
-              <h3 className="font-bold text-2xl">Premium</h3>
-              <p className="text-sm mt-3 opacity-90 leading-relaxed">
-                Unlock AI insight detail, video premium, komunitas eksklusif, tema custom, dan statistik lanjutan.
-              </p>
-
-              <button className="mt-5 bg-white text-blue-600 font-semibold px-5 py-3 rounded-2xl w-full">
-                Upgrade Sekarang
-              </button>
-            </div>
-          </aside>
-
-          <main className="space-y-8">
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-              {[
-                ['Total Poin','1,240'],
-                ['Challenge Selesai','48'],
-                ['Partner Aktif','3'],
-                ['Streak Harian','12 Hari']
-              ].map((card,index)=>(
-                <div key={index} className="bg-white border border-slate-100 rounded-[30px] p-6 shadow-sm hover:shadow-xl transition-all">
-                  <p className="text-slate-500 text-sm">{card[0]}</p>
-                  <h2 className="text-4xl font-black mt-4 text-blue-600">{card[1]}</h2>
-                </div>
-              ))}
-            </div>
-
-            <div className="grid lg:grid-cols-3 gap-6">
-              <div className="lg:col-span-2 bg-white border border-slate-100 rounded-[35px] p-7 shadow-sm">
-                <div className="flex items-center justify-between mb-8">
-                  <div>
-                    <h3 className="text-2xl font-black">Challenge Hari Ini</h3>
-                    <p className="text-slate-500 text-sm mt-1">Daily challenge dan AI tracking.</p>
-                  </div>
-
-                  <div className="bg-orange-100 text-orange-600 px-4 py-2 rounded-xl text-sm font-semibold">
-                    Daily Streak 🔥
-                  </div>
-                </div>
-
-                <div className="space-y-6">
-                  {challenges.map((challenge,index)=>(
-                    <div key={index} className="border border-slate-100 rounded-[30px] p-6 hover:shadow-xl transition-all">
-                      <div className="flex items-start justify-between flex-wrap gap-4">
+                    <section class="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-14 items-center">
                         <div>
-                          <div className="flex items-center gap-3 flex-wrap">
-                            <h3 className="text-2xl font-bold">{challenge.title}</h3>
-                            {challenge.premium && (
-                              <span className="bg-gradient-to-r from-orange-400 to-orange-500 text-white text-xs px-3 py-1 rounded-full font-semibold">
-                                Premium Only
-                              </span>
-                            )}
-                          </div>
-
-                          <p className="text-slate-500 mt-3 max-w-2xl">
-                            Challenge interaktif untuk meningkatkan konsistensi dan pengembangan diri harian.
-                          </p>
+                            <div class="inline-flex items-center gap-2 bg-blue-50 border border-blue-100 px-4 py-2 rounded-full text-blue-700 text-sm mb-6">🚀 Gamification Platform</div>
+                            <h1 class="text-5xl md:text-6xl font-black leading-tight tracking-tight">Transform Your <span class="text-blue-600">Habits</span></h1>
+                            <p class="text-slate-500 text-lg mt-6">Platform self development interaktif berbasis AI.</p>
                         </div>
-
-                        <div className="text-right">
-                          <p className="text-sm text-slate-500">Reward</p>
-                          <h4 className="text-2xl font-black text-orange-500">+{challenge.reward}</h4>
+                        <div class="relative bg-white rounded-[40px] border border-slate-100 shadow-2xl p-8">
+                            <h3 class="font-bold text-xl mb-4">Daily Progress</h3>
+                            <div class="space-y-4">
+                                ${challenges.map(c => html`
+                                    <div class="bg-slate-50 rounded-3xl p-4">
+                                        <div class="flex justify-between font-bold">${c.title}<span>${c.progress}%</span></div>
+                                        <div class="h-2 bg-slate-200 rounded-full mt-2"><div class="h-full bg-blue-500 rounded-full" style="width: ${c.progress}%"></div></div>
+                                    </div>
+                                `)}
+                            </div>
                         </div>
-                      </div>
+                    </section>
 
-                      <div className="grid md:grid-cols-4 gap-4 mt-6">
-                        <div className="bg-slate-50 rounded-2xl p-4">
-                          <p className="text-sm text-slate-500">Kategori</p>
-                          <h4 className="font-bold mt-1">{challenge.category}</h4>
+                    <section class="max-w-7xl mx-auto px-6 py-10">
+                        <h2 class="text-4xl font-black text-center mb-10">Fitur Utama</h2>
+                        <div class="grid md:grid-cols-4 gap-6">
+                            ${features.map(f => html`<div class="bg-white border p-6 rounded-3xl shadow-sm text-center font-bold text-lg">${f}</div>`)}
                         </div>
-
-                        <div className="bg-slate-50 rounded-2xl p-4">
-                          <p className="text-sm text-slate-500">Kesulitan</p>
-                          <h4 className="font-bold mt-1">{challenge.difficulty}</h4>
-                        </div>
-
-                        <div className="bg-slate-50 rounded-2xl p-4">
-                          <p className="text-sm text-slate-500">Durasi</p>
-                          <h4 className="font-bold mt-1">{challenge.duration}</h4>
-                        </div>
-
-                        <div className="bg-slate-50 rounded-2xl p-4">
-                          <p className="text-sm text-slate-500">Progress</p>
-                          <h4 className="font-bold mt-1">{challenge.progress}%</h4>
-                        </div>
-                      </div>
-
-                      <div className="mt-6">
-                        <div className="flex justify-between mb-2 text-sm">
-                          <span>Progress Challenge</span>
-                          <span>{challenge.progress}%</span>
-                        </div>
-
-                        <div className="h-3 bg-slate-200 rounded-full overflow-hidden">
-                          <div
-                            className="h-full bg-gradient-to-r from-blue-500 to-orange-400 rounded-full"
-                            style={{ width: `${challenge.progress}%` }}
-                          ></div>
-                        </div>
-                      </div>
-
-                      <div className="mt-8 rounded-[30px] overflow-hidden border border-slate-100">
-                        <div className="bg-gradient-to-r from-blue-600 to-orange-400 text-white p-5 flex items-center justify-between">
-                          <div>
-                            <h4 className="font-bold text-xl">Interactive Challenge Video</h4>
-                            <p className="text-sm opacity-90 mt-1">Watch inside platform • Auto reward tracking enabled</p>
-                          </div>
-
-                          <div className="bg-white/20 px-4 py-2 rounded-xl text-sm">
-                            +25 Bonus Point
-                          </div>
-                        </div>
-
-                        <iframe
-                          className="w-full aspect-video"
-                          src={challenge.video}
-                          title="Challenge Video"
-                          allowFullScreen
-                        ></iframe>
-                      </div>
-
-                      <div className="flex flex-wrap gap-4 mt-7">
-                        <button className="bg-blue-600 text-white px-6 py-3 rounded-2xl hover:scale-105 transition-all shadow-lg">
-                          Mulai
-                        </button>
-
-                        <button className="bg-orange-500 text-white px-6 py-3 rounded-2xl hover:scale-105 transition-all shadow-lg">
-                          Selesaikan
-                        </button>
-                      </div>
-                    </div>
-                  ))}
+                    </section>
                 </div>
-              </div>
+            `;
+        }
 
-              <div className="space-y-6">
-                <div className="bg-white border border-slate-100 rounded-[35px] p-7 shadow-sm">
-                  <h3 className="text-2xl font-black">AI Reminder</h3>
-
-                  <div className="space-y-4 mt-6">
-                    {[
-                      'Jangan lupa menyelesaikan journaling hari ini!',
-                      'Kamu tinggal 1 challenge lagi untuk mempertahankan streak!',
-                      'Ayo lanjutkan progress workout agar target mingguan tercapai.'
-                    ].map((text,index)=>(
-                      <div key={index} className="bg-blue-50 border border-blue-100 rounded-2xl p-4 text-blue-700 text-sm leading-relaxed">
-                        🤖 {text}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="bg-white border border-slate-100 rounded-[35px] p-7 shadow-sm">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-2xl font-black">Progress Partner</h3>
-                    <div className="bg-green-100 text-green-600 px-3 py-1 rounded-full text-xs font-bold">
-                      Online
-                    </div>
-                  </div>
-
-                  <div className="space-y-5 mt-7">
-                    {users.slice(0,4).map((user,index)=>(
-                      <div key={index} className="flex items-center justify-between bg-slate-50 rounded-2xl p-4">
-                        <div className="flex items-center gap-3">
-                          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-orange-400"></div>
-                          <div>
-                            <h4 className="font-bold">{user}</h4>
-                            <p className="text-sm text-slate-500">Progress aktif</p>
-                          </div>
-                        </div>
-
-                        <button className="text-blue-600 font-semibold text-sm">
-                          Semangati
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="mt-6 bg-slate-50 rounded-2xl p-4">
-                    <input
-                      placeholder="Kirim semangat ke partner..."
-                      className="w-full bg-transparent outline-none"
-                    />
-                  </div>
-                </div>
-
-                <div className="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-[35px] p-7 shadow-xl">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-2xl font-black">Dark Mode</h3>
-                    <span className="bg-orange-400 text-black px-3 py-1 rounded-full text-xs font-bold">
-                      Unlock Reward
-                    </span>
-                  </div>
-
-                  <p className="text-slate-300 mt-4 leading-relaxed text-sm">
-                    Theme dark premium bisa digunakan setelah reward berhasil diklaim menggunakan poin.
-                  </p>
-
-                  <button className="mt-6 bg-white text-black px-5 py-3 rounded-2xl font-semibold w-full">
-                    Klaim Tema
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div className="grid lg:grid-cols-2 gap-6">
-              <div className="bg-white border border-slate-100 rounded-[35px] p-7 shadow-sm">
-                <div className="flex items-center justify-between mb-8">
-                  <div>
-                    <h3 className="text-3xl font-black">Leaderboard</h3>
-                    <p className="text-slate-500 text-sm mt-1">Top challenge users</p>
-                  </div>
-
-                  <div className="bg-orange-100 text-orange-500 px-4 py-2 rounded-xl font-semibold text-sm">
-                    Global Rank
-                  </div>
-                </div>
-
-                <div className="space-y-5">
-                  {leaderboard.map((item,index)=>(
-                    <div key={index} className="flex items-center justify-between border border-slate-100 rounded-2xl p-4 hover:bg-slate-50 transition-all">
-                      <div className="flex items-center gap-4">
-                        <div className="w-14 h-14 rounded-full bg-gradient-to-r from-blue-500 to-orange-400 flex items-center justify-center text-white font-bold">
-                          {index + 1}
-                        </div>
-
-                        <div>
-                          <h4 className="font-bold text-lg">{item.name}</h4>
-                          <p className="text-sm text-slate-500">{item.badge} • Level {item.level}</p>
-                        </div>
-                      </div>
-
-                      <div className="text-right">
-                        <h3 className="font-black text-2xl text-blue-600">{item.points}</h3>
-                        <p className="text-sm text-slate-500">Points</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="grid grid-cols-5 gap-3 mt-8">
-                  {['Beginner','Challenger','Warrior','Master','Legend'].map((badge,index)=>(
-                    <div key={index} className="bg-slate-50 rounded-2xl py-4 text-center text-xs font-semibold">
-                      🏆 {badge}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="bg-white border border-slate-100 rounded-[35px] p-7 shadow-sm">
-                <div className="flex items-center justify-between mb-8">
-                  <div>
-                    <h3 className="text-3xl font-black">Reward Exchange</h3>
-                    <p className="text-slate-500 text-sm mt-1">Tukar poin dengan benefit premium</p>
-                  </div>
-
-                  <div className="bg-blue-100 text-blue-600 px-4 py-2 rounded-xl font-semibold text-sm">
-                    1240 Poin
-                  </div>
-                </div>
-
-                <div className="space-y-5">
-                  <div className="border border-slate-100 rounded-3xl p-6">
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <h4 className="font-bold text-2xl">Premium 1 Bulan</h4>
-                        <p className="text-slate-500 mt-2 text-sm leading-relaxed">
-                          Unlock komunitas premium, AI insight detail, challenge eksklusif, statistik lanjutan, dan tema dashboard.
-                        </p>
-                      </div>
-
-                      <div className="bg-orange-100 text-orange-500 px-4 py-2 rounded-xl text-sm font-bold">
-                        500 Poin
-                      </div>
-                    </div>
-
-                    <button className="mt-6 bg-gradient-to-r from-blue-600 to-orange-400 text-white px-6 py-3 rounded-2xl font-semibold">
-                      Tukar Reward
-                    </button>
-                  </div>
-
-                  <div className="grid md:grid-cols-3 gap-4">
-                    {[
-                      ['1 Bulan','Rp20.000'],
-                      ['6 Bulan','Rp75.000'],
-                      ['1 Tahun','Rp120.000']
-                    ].map((item,index)=>(
-                      <div key={index} className="border border-slate-100 rounded-3xl p-5 hover:shadow-xl transition-all">
-                        <h4 className="font-bold text-xl">{item[0]}</h4>
-                        <p className="text-3xl font-black text-blue-600 mt-4">{item[1]}</p>
-                        <div className="mt-5 space-y-2 text-sm text-slate-500">
-                          <p>✔ AI Insight Premium</p>
-                          <p>✔ Exclusive Challenge</p>
-                          <p>✔ Premium Community</p>
-                        </div>
-
-                        <div className="mt-6 flex gap-2 flex-wrap text-xs">
-                          <span className="bg-slate-100 px-3 py-2 rounded-xl">QRIS</span>
-                          <span className="bg-slate-100 px-3 py-2 rounded-xl">ShopeePay</span>
-                          <span className="bg-slate-100 px-3 py-2 rounded-xl">DANA</span>
-                        </div>
-
-                        <button className="mt-6 bg-blue-600 text-white w-full py-3 rounded-2xl font-semibold">
-                          Upgrade
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="grid lg:grid-cols-2 gap-6">
-              <div className="bg-white border border-slate-100 rounded-[35px] p-7 shadow-sm">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className="text-3xl font-black">Community Premium</h3>
-                    <p className="text-slate-500 text-sm mt-1">Exclusive member community</p>
-                  </div>
-
-                  <div className="bg-gradient-to-r from-orange-400 to-orange-500 text-white px-4 py-2 rounded-xl font-semibold text-sm">
-                    Premium Only
-                  </div>
-                </div>
-
-                <div className="space-y-5 mt-8">
-                  {users.slice(0,3).map((user,index)=>(
-                    <div key={index} className="border border-slate-100 rounded-3xl p-5">
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-orange-400"></div>
-                        <div>
-                          <h4 className="font-bold">{user}</h4>
-                          <p className="text-sm text-slate-500">“Hari ini berhasil menyelesaikan 3 challenge!”</p>
-                        </div>
-                      </div>
-
-                      <div className="flex gap-6 mt-5 text-sm text-slate-500">
-                        <button>❤️ 124 Like</button>
-                        <button>💬 23 Komentar</button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="bg-white border border-slate-100 rounded-[35px] p-7 shadow-sm">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className="text-3xl font-black">Daily Journal</h3>
-                    <p className="text-slate-500 text-sm mt-1">Mood tracking & gratitude journal</p>
-                  </div>
-
-                  <div className="bg-blue-100 text-blue-600 px-4 py-2 rounded-xl text-sm font-semibold">
-                    89% Konsisten
-                  </div>
-                </div>
-
-                <textarea
-                  placeholder="Tuliskan gratitude journal hari ini..."
-                  className="w-full h-44 bg-slate-50 rounded-3xl p-5 mt-8 outline-none resize-none border border-slate-100"
-                ></textarea>
-
-                <div className="grid grid-cols-5 gap-3 mt-6">
-                  {['😄','🙂','😐','😴','😢'].map((mood,index)=>(
-                    <button key={index} className="bg-slate-50 hover:bg-blue-50 rounded-2xl py-4 text-2xl transition-all">
-                      {mood}
-                    </button>
-                  ))}
-                </div>
-
-                <div className="mt-8 bg-slate-50 rounded-3xl p-6">
-                  <h4 className="font-bold text-xl">Jadwal Challenge</h4>
-
-                  <div className="space-y-4 mt-5">
-                    <div className="flex items-center justify-between">
-                      <span>Workout Challenge</span>
-                      <span className="text-blue-600 font-semibold">07:00</span>
-                    </div>
-
-                    <div className="flex items-center justify-between">
-                      <span>Reading Session</span>
-                      <span className="text-blue-600 font-semibold">19:00</span>
-                    </div>
-
-                    <div className="flex items-center justify-between">
-                      <span>Night Journaling</span>
-                      <span className="text-blue-600 font-semibold">21:00</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </main>
-        </div>
-      </section>
-
-      <section className="bg-slate-950 text-white py-20 mt-20">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 items-center">
-          <div>
-            <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full text-sm mb-6">
-              ⭐ Startup Ready Design
-            </div>
-
-            <h2 className="text-5xl font-black leading-tight">
-              Build Better Habits With AI & Gamification
-            </h2>
-
-            <p className="text-slate-400 mt-6 leading-relaxed text-lg max-w-2xl">
-              Platform modern self improvement yang siap digunakan untuk kompetisi inovasi digital, startup pitch, maupun pengembangan aplikasi real.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-5">
-            <div className="bg-white/5 border border-white/10 rounded-3xl p-6 backdrop-blur">
-              <h3 className="font-bold text-2xl">Premium Features</h3>
-              <div className="space-y-3 mt-5 text-slate-300 text-sm">
-                <p>✔ AI Insight Detail</p>
-                <p>✔ Video Challenge Premium</p>
-                <p>✔ Global Leaderboard</p>
-                <p>✔ Exclusive Community</p>
-                <p>✔ Custom Dashboard Theme</p>
-                <p>✔ Advanced Statistics</p>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-br from-blue-600 to-orange-400 rounded-3xl p-6 shadow-2xl">
-              <h3 className="font-bold text-2xl">Authentication</h3>
-              <div className="space-y-4 mt-6">
-                <input placeholder="Email Address" className="w-full rounded-2xl px-5 py-4 bg-white text-black outline-none" />
-                <input type="password" placeholder="Password" className="w-full rounded-2xl px-5 py-4 bg-white text-black outline-none" />
-
-                <button className="w-full bg-black text-white py-4 rounded-2xl font-semibold">
-                  Login
-                </button>
-
-                <button className="w-full bg-white text-black py-4 rounded-2xl font-semibold">
-                  Continue With Google
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  )
-}
-        
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(React.createElement(WebDayChallenge));
+    </script>
+</body>
+</html>
