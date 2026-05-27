@@ -7,7 +7,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; transition: all 0.3s; }
-        .dark-mode { background-color: #0f172a; color: white; }
+        .dark-mode { background-color: #0f172a !important; color: #ffffff !important; }
+        .dark-mode .bg-white { background-color: #1e293b !important; border-color: #334155 !important; color: #ffffff !important; }
+        .dark-mode .text-gray-900 { color: #ffffff !important; }
+        .dark-mode .text-gray-500 { color: #94a3b8 !important; }
         .hidden-section { display: none; }
     </style>
 </head>
@@ -15,8 +18,8 @@
 
     <div id="auth-section" class="fixed inset-0 z-[100] bg-gray-50 flex items-center justify-center p-4">
         <div class="bg-white p-8 rounded-3xl shadow-xl w-full max-w-md border">
-            <h2 id="auth-title" class="text-2xl font-bold mb-6 text-center">Register</h2>
-            <input type="text" id="username" placeholder="Masukkan nama Anda" class="w-full p-3 border rounded-xl mb-4">
+            <h2 class="text-2xl font-bold mb-6 text-center">Register</h2>
+            <input type="text" id="username" placeholder="Masukkan nama Anda" class="w-full p-3 border rounded-xl mb-4 text-gray-900">
             <button onclick="handleAuth()" class="w-full bg-blue-600 text-white py-3 rounded-xl font-bold">Mulai Sekarang</button>
         </div>
     </div>
@@ -24,7 +27,7 @@
     <div id="app-content" class="hidden">
         <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b px-8 py-4 flex justify-between items-center">
             <div class="flex items-center gap-2 font-bold text-xl text-blue-600">
-                <img src="logo.png" alt="Logo" class="h-8 w-8 object-contain"> Day Challenge
+                <img src="logo.png" alt="Logo" class="h-16 w-16 object-contain"> Day Challenge
             </div>
             <div class="space-x-4 text-sm font-semibold">
                 <button onclick="showSection('dashboard')">Home</button>
@@ -36,11 +39,10 @@
         <main class="pt-24 px-4 pb-20 max-w-5xl mx-auto">
             <section id="dashboard" class="space-y-8">
                 <h2 class="text-2xl font-bold">Halo, <span id="userName">User</span>! 👋</h2>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="grid grid-cols-2 gap-4">
                     <div class="bg-white p-4 rounded-2xl border shadow-sm">Poin: <span id="userPoints" class="font-bold text-blue-600">160</span></div>
                     <div class="bg-white p-4 rounded-2xl border shadow-sm">Streak: <span class="font-bold text-orange-500">5 Hari</span></div>
                 </div>
-
                 <div class="bg-white p-8 rounded-3xl shadow-sm border">
                     <h2 class="text-xl font-bold mb-4">Daily Challenge: Public Speaking</h2>
                     <div class="aspect-video bg-black rounded-2xl mb-4 overflow-hidden">
@@ -52,14 +54,13 @@
 
             <section id="settings" class="hidden-section bg-white p-8 rounded-3xl shadow-sm border">
                 <h2 class="text-2xl font-bold mb-6">Settings</h2>
-                <input type="text" id="newUsername" placeholder="Ganti Nama Baru" class="w-full p-3 border rounded-xl mb-4">
-                <button onclick="saveSettings()" class="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold">Simpan Perubahan</button>
+                <input type="text" id="newUsername" placeholder="Username Baru" class="w-full p-3 border rounded-xl mb-4 text-gray-900">
+                <button onclick="saveSettings()" class="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold">Simpan</button>
             </section>
         </main>
     </div>
 
     <script>
-        // Fungsi untuk handle Login/Register
         function handleAuth() {
             const name = document.getElementById('username').value;
             if(name) {
@@ -67,14 +68,10 @@
                 location.reload();
             }
         }
-
-        // Fungsi navigasi section
         function showSection(id) {
             document.getElementById('dashboard').style.display = id === 'dashboard' ? 'block' : 'none';
             document.getElementById('settings').style.display = id === 'settings' ? 'block' : 'none';
         }
-
-        // Fungsi Simpan Setting
         function saveSettings() {
             const newName = document.getElementById('newUsername').value;
             if(newName) {
@@ -83,24 +80,26 @@
                 alert("Profil diperbarui!");
             }
         }
-
-        function toggleDarkMode() { document.body.classList.toggle('dark-mode'); }
-
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode') ? 'enabled' : 'disabled');
+        }
         function claimReward() {
             let pts = parseInt(document.getElementById('userPoints').innerText);
             pts += 50;
             document.getElementById('userPoints').innerText = pts;
-            alert("Reward diklaim! 50 Poin ditambahkan.");
-            if(pts >= 500) alert("Selamat! Anda mencapai 500 Poin. Fitur Premium Aktif!");
+            alert("Reward diklaim!");
+            if(pts >= 500) alert("Premium Aktif!");
         }
-
-        // Auto load saat web dibuka
         window.onload = () => {
             const user = localStorage.getItem('user');
             if(user) {
                 document.getElementById('auth-section').style.display = 'none';
                 document.getElementById('app-content').classList.remove('hidden');
                 document.getElementById('userName').innerText = user;
+            }
+            if(localStorage.getItem('darkMode') === 'enabled') {
+                document.body.classList.add('dark-mode');
             }
         }
     </script>
