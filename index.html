@@ -3,105 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Day Challenge</title>
+    <title>Web Day Challenge | Transform Your Habits</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; transition: all 0.3s; }
-        .dark-mode { background-color: #0f172a !important; color: #ffffff !important; }
-        .dark-mode .bg-white { background-color: #1e293b !important; border-color: #334155 !important; color: #ffffff !important; }
-        .dark-mode .text-gray-900 { color: #ffffff !important; }
-        .dark-mode .text-gray-500 { color: #94a3b8 !important; }
-        .hidden-section { display: none; }
+        body { font-family: 'Inter', sans-serif; }
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body class="bg-slate-50 text-slate-900">
 
-    <div id="auth-section" class="fixed inset-0 z-[100] bg-gray-50 flex items-center justify-center p-4">
-        <div class="bg-white p-8 rounded-3xl shadow-xl w-full max-w-md border">
-            <h2 class="text-2xl font-bold mb-6 text-center">Register</h2>
-            <input type="text" id="username" placeholder="Masukkan nama Anda" class="w-full p-3 border rounded-xl mb-4 text-gray-900">
-            <button onclick="handleAuth()" class="w-full bg-blue-600 text-white py-3 rounded-xl font-bold">Mulai Sekarang</button>
+    <nav class="fixed w-full z-50 glass border-b border-slate-200 px-8 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <img src="logo.png" class="h-10 w-10 object-cover rounded-xl" alt="Logo">
+            <span class="text-xl font-bold text-blue-600">Web Day Challenge</span>
         </div>
-    </div>
+        <div class="hidden md:flex gap-6 font-medium text-sm text-slate-600">
+            <a href="#" class="hover:text-blue-600">Home</a>
+            <a href="#" class="hover:text-blue-600">Challenge</a>
+            <a href="#" class="hover:text-blue-600">Community</a>
+            <a href="#" class="hover:text-blue-600">Premium</a>
+        </div>
+        <div class="flex gap-4">
+            <button class="text-sm font-semibold text-slate-600">Login</button>
+            <button class="bg-blue-600 text-white px-5 py-2 rounded-xl text-sm font-bold shadow-lg shadow-blue-200">Register</button>
+        </div>
+    </nav>
 
-    <div id="app-content" class="hidden">
-        <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b px-8 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-2 font-bold text-xl text-blue-600">
-                <img src="logo.png" alt="Logo" class="h-16 w-16 object-contain"> Day Challenge
-            </div>
-            <div class="space-x-4 text-sm font-semibold">
-                <button onclick="showSection('dashboard')">Home</button>
-                <button onclick="showSection('settings')">Settings</button>
-                <button onclick="toggleDarkMode()">🌙</button>
-            </div>
-        </nav>
+    <section class="pt-32 pb-20 px-8 text-center max-w-4xl mx-auto">
+        <h1 class="text-6xl font-extrabold mb-6 tracking-tight text-slate-900">Transform Your Habits <br> <span class="text-blue-600">Into Challenges</span></h1>
+        <p class="text-lg text-slate-500 mb-10 max-w-2xl mx-auto">Web Day Challenge membantu pengguna membangun kebiasaan positif melalui challenge interaktif, AI reminder, leaderboard, dan komunitas suportif.</p>
+        <div class="flex justify-center gap-4">
+            <button class="bg-blue-600 text-white px-8 py-4 rounded-2xl font-bold shadow-xl shadow-blue-200">Mulai Challenge</button>
+            <button class="bg-white border border-slate-200 px-8 py-4 rounded-2xl font-bold text-slate-700">Gabung Sekarang</button>
+        </div>
+    </section>
 
-        <main class="pt-24 px-4 pb-20 max-w-5xl mx-auto">
-            <section id="dashboard" class="space-y-8">
-                <h2 class="text-2xl font-bold">Halo, <span id="userName">User</span>! 👋</h2>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="bg-white p-4 rounded-2xl border shadow-sm">Poin: <span id="userPoints" class="font-bold text-blue-600">160</span></div>
-                    <div class="bg-white p-4 rounded-2xl border shadow-sm">Streak: <span class="font-bold text-orange-500">5 Hari</span></div>
-                </div>
-                <div class="bg-white p-8 rounded-3xl shadow-sm border">
-                    <h2 class="text-xl font-bold mb-4">Daily Challenge: Public Speaking</h2>
-                    <div class="aspect-video bg-black rounded-2xl mb-4 overflow-hidden">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/-2NnNomW68k" allowfullscreen></iframe>
+    <div class="max-w-7xl mx-auto px-8 py-10 grid grid-cols-12 gap-8">
+        
+        <aside class="col-span-3 space-y-2">
+            <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full"></div>
+                    <div>
+                        <h3 class="font-bold">Halo, Naswa!</h3>
+                        <p class="text-xs text-slate-400">Pro 500 Pts</p>
                     </div>
-                    <button onclick="claimReward()" class="w-full bg-blue-600 text-white py-3 rounded-xl font-bold hover:bg-blue-700">Klaim 50 Poin</button>
                 </div>
-            </section>
+                <nav class="space-y-1">
+                    <a class="block p-3 bg-blue-50 text-blue-600 rounded-xl font-semibold">Home</a>
+                    <a class="block p-3 hover:bg-slate-50 rounded-xl font-medium">Daily Challenge</a>
+                    <a class="block p-3 hover:bg-slate-50 rounded-xl font-medium">Journaling</a>
+                    <a class="block p-3 hover:bg-slate-50 rounded-xl font-medium">Leaderboard</a>
+                    <a class="block p-3 hover:bg-slate-50 rounded-xl font-medium">Settings</a>
+                </nav>
+            </div>
+        </aside>
 
-            <section id="settings" class="hidden-section bg-white p-8 rounded-3xl shadow-sm border">
-                <h2 class="text-2xl font-bold mb-6">Settings</h2>
-                <input type="text" id="newUsername" placeholder="Username Baru" class="w-full p-3 border rounded-xl mb-4 text-gray-900">
-                <button onclick="saveSettings()" class="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold">Simpan</button>
-            </section>
+        <main class="col-span-9 space-y-8">
+            <div class="grid grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-3xl border shadow-sm">
+                    <p class="text-sm text-slate-400">Total Poin</p>
+                    <h3 class="text-2xl font-bold">160</h3>
+                </div>
+                <div class="bg-white p-6 rounded-3xl border shadow-sm">
+                    <p class="text-sm text-slate-400">Challenge</p>
+                    <h3 class="text-2xl font-bold">12</h3>
+                </div>
+                <div class="bg-white p-6 rounded-3xl border shadow-sm">
+                    <p class="text-sm text-slate-400">Partner</p>
+                    <h3 class="text-2xl font-bold">3</h3>
+                </div>
+                <div class="bg-white p-6 rounded-3xl border shadow-sm">
+                    <p class="text-sm text-slate-400">Streak</p>
+                    <h3 class="text-2xl font-bold text-orange-500">5 Hari</h3>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl border shadow-sm">
+                <h2 class="text-xl font-bold mb-6">Today's Challenge</h2>
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="border rounded-2xl p-6">
+                        <h4 class="font-bold">Public Speaking</h4>
+                        <p class="text-sm text-slate-400 mb-4">Latihan berbicara di depan umum</p>
+                        <div class="w-full bg-slate-100 h-2 rounded-full mb-4">
+                            <div class="bg-blue-600 w-1/2 h-2 rounded-full"></div>
+                        </div>
+                        <button class="w-full py-2 bg-blue-600 text-white rounded-xl font-bold">Mulai</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-slate-900 to-blue-900 p-8 rounded-3xl text-white">
+                <h3 class="text-2xl font-bold mb-2">Unlock Premium Access</h3>
+                <p class="text-slate-300 mb-6">Dapatkan AI Insight, Badge Spesial, & Leaderboard Global!</p>
+                <button class="bg-white text-blue-900 px-6 py-3 rounded-xl font-bold">Upgrade Sekarang (Rp 20.000)</button>
+            </div>
         </main>
     </div>
 
     <script>
-        function handleAuth() {
-            const name = document.getElementById('username').value;
-            if(name) {
-                localStorage.setItem('user', name);
-                location.reload();
-            }
-        }
-        function showSection(id) {
-            document.getElementById('dashboard').style.display = id === 'dashboard' ? 'block' : 'none';
-            document.getElementById('settings').style.display = id === 'settings' ? 'block' : 'none';
-        }
-        function saveSettings() {
-            const newName = document.getElementById('newUsername').value;
-            if(newName) {
-                localStorage.setItem('user', newName);
-                document.getElementById('userName').innerText = newName;
-                alert("Profil diperbarui!");
-            }
-        }
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode') ? 'enabled' : 'disabled');
-        }
-        function claimReward() {
-            let pts = parseInt(document.getElementById('userPoints').innerText);
-            pts += 50;
-            document.getElementById('userPoints').innerText = pts;
-            alert("Reward diklaim!");
-            if(pts >= 500) alert("Premium Aktif!");
-        }
-        window.onload = () => {
-            const user = localStorage.getItem('user');
-            if(user) {
-                document.getElementById('auth-section').style.display = 'none';
-                document.getElementById('app-content').classList.remove('hidden');
-                document.getElementById('userName').innerText = user;
-            }
-            if(localStorage.getItem('darkMode') === 'enabled') {
-                document.body.classList.add('dark-mode');
-            }
-        }
+        // Animasi hover & interaksi bisa ditambahkan di sini
     </script>
 </body>
 </html>
